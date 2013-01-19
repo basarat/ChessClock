@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Game Clock</title>
+    <link href="css/main.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <button data-bind="{
+            click: p2turn,
+            css: {
+                    green:gameState()==GameStates.p1turn,
+                    red:gameState()!=GameStates.p1turn,
+                } 
+            }">
+            Turn Over</button>
+        <div id="p1clock" class="clock">
+            <ul>
+                <li data-bind="{text: p1.min}"></li>
+                <li class="point">:</li>
+                <li data-bind="{text: p1.sec}"></li>
+                <li class="point">:</li>
+                <li data-bind="{text: p1.mil}"></li>
+            </ul>
+        </div>
+        <div id="p2clock" class="clock">
+            <ul>
+                <li data-bind="{text: p2.min}"></li>
+                <li class="point">:</li>
+                <li data-bind="{text: p2.sec}"></li>
+                <li class="point">:</li>
+                <li data-bind="{text: p2.mil}"></li>
+            </ul>
+        </div>
+        <button data-bind="{
+            click: p1turn,
+            css: {
+                    green:gameState()==GameStates.p2turn,
+                    red:gameState()!=GameStates.p2turn,
+                } 
+            }">
+            Turn Over</button>
+    </div>
+</body>
+<script src="Scripts/jquery/jquery-1.9.0.js"></script>
+<script src="Scripts/knockout/knockout-2.2.1.debug.js"></script>
+<script src="main.js"></script>
+</html>
