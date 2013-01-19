@@ -79,7 +79,7 @@ var ViewModel = (function () {
         this.gameState = ko.observable(GameStates.paused);
         this.gameState(GameStates.p1turn);
         this.p1.setTime(1, 15, 0);
-        this.p2.setTime(0, 0, 10);
+        this.p2.setTime(0, 0, 20);
         var self = this;
         setInterval(function () {
             self.update();

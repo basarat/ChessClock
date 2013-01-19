@@ -105,7 +105,7 @@ class ViewModel {
         this.gameState(GameStates.p1turn);
         //for timers
         this.p1.setTime(1, 15, 0);
-        this.p2.setTime(0, 0, 10);
+        this.p2.setTime(0, 0, 20);
 
        
         //Loop for every 100ms: 

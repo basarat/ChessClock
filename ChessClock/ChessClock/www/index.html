@@ -11,7 +11,8 @@
             css: {
                     green:gameState()==GameStates.p1turn,
                     red:gameState()!=GameStates.p1turn,
-                } 
+                } ,
+            enable:gameState()==GameStates.p1turn
             }">
             Turn Over</button>
         <div id="p1clock" class="clock">
@@ -37,7 +38,8 @@
             css: {
                     green:gameState()==GameStates.p2turn,
                     red:gameState()!=GameStates.p2turn,
-                } 
+                },
+            enable: gameState()==GameStates.p2turn 
             }">
             Turn Over</button>
     </div>
