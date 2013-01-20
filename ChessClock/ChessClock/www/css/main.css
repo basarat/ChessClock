@@ -34,7 +34,6 @@ body {
 .clock span {
   height: 100%;
   display: inline-block;
-  width: 150px;
   line-height: normal;
 }
 .point {
