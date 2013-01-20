@@ -1,4 +1,26 @@
-﻿
+﻿//Make it a full page application:
+html, body {
+    height: 100%;
+	width:100%;
+	overflow: hidden;
+	padding:0px;
+	margin:0px;
+}
+
+//Make buttons from bootstrap larger
+.btn {
+	//make it with margin top and bottom: 
+    height: 90%;	
+	//Set up width
+    width: 90%;
+}
+//put some padding between bootstrap rows: 
+.row-fluid{
+	padding:0px 0px;
+}
+
+
+
 @font-face {
     font-family: 'BebasNeueRegular';
     src: url('./fonts/BebasNeue-webfont.eot');
@@ -9,7 +31,6 @@
 
 .container {
     margin: 0 auto;
-    overflow: hidden;
 }
 
 .clock {
@@ -24,6 +45,9 @@
     .clock span {
         //take up all available space:
         height: 100%;
+		//For text resizing required: https://github.com/davatron5000/FitText.js
+		display: inline-block;
+		width:150px;
         //center the text by overriding the lineheight set by bootstrap:
 		line-height:normal;
         
@@ -76,13 +100,4 @@
 .invert {
 }
 
-//Make it a full page application:
-html, body {
-    height: 100%;
-}
 
-//Make buttons larger
-.btn {
-    height: 90%;
-    width: 90%;
-}
