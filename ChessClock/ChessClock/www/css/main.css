@@ -1,5 +1,4 @@
-﻿/* If you want you can use font-face */
-@font-face {
+﻿@font-face {
   font-family: 'BebasNeueRegular';
   src: url('./fonts/BebasNeue-webfont.eot');
   src: url('./fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'), url('./fonts/BebasNeue-webfont.woff') format('woff'), url('./fonts/BebasNeue-webfont.ttf') format('truetype'), url('./fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
@@ -14,14 +13,12 @@
   margin: 0 auto;
   border: 1px solid #333;
   color: #fff;
-  display: table;
-}
-.clock div {
   font-size: 150px;
   font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
   text-shadow: 0 0 5px #00c6ff;
-  display: table-cell;
-  vertical-align: middle;
+}
+.clock span {
+  height: 100%;
   line-height: normal;
 }
 .point {

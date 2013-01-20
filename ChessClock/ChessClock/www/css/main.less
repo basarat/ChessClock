@@ -1,4 +1,4 @@
-﻿/* If you want you can use font-face */
+﻿
 @font-face {
     font-family: 'BebasNeueRegular';
     src: url('./fonts/BebasNeue-webfont.eot');
@@ -15,20 +15,18 @@
 .clock {
     margin: 0 auto;
     border: 1px solid #333;
-    color: #fff;
-	//to center the text:
-	display:table;
-
+    color: #fff;    
+    font-size: 150px;
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    text-shadow: 0 0 5px #00c6ff;
 }
 
-    .clock div {
-        font-size: 150px;
-        font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
-        text-shadow: 0 0 5px #00c6ff;
-        //setup to center the clock text 
-        display: table-cell;
-        vertical-align: middle;
-        line-height: normal; //reset from what bootstrap would have you believe
+    .clock span {
+        //take up all available space:
+        height: 100%;
+        //center the text by overriding the lineheight set by bootstrap:
+		line-height:normal;
+        
     }
 
 .point {
