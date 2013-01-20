@@ -76,7 +76,8 @@
             resizer();
 
             // Call on resize. Opera debounces their resize by default. 
-            $(window).on('resize', resizer);
+            //CUSTOMCODE Removed since custom logic is required 
+            //$(window).on('resize', resizer);
 
             ////CUSTOMCODE
             //setInterval(function () { resizer() }, 1000);

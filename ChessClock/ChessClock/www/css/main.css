@@ -25,7 +25,6 @@ body {
 }
 .clock {
   margin: 0 auto;
-  border: 1px solid #333;
   color: #fff;
   font-size: 150px;
   font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
@@ -40,6 +39,8 @@ body {
   position: relative;
   -moz-animation: mymove 1s ease infinite;
   -webkit-animation: mymove 1s ease infinite;
+  -o-animation: mymove 1s ease infinite;
+  animation: mymove 1s ease infinite;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -58,6 +59,20 @@ body {
   }
 }
 @-moz-keyframes mymove {
+  0% {
+    opacity: 1.0;
+    text-shadow: 0 0 20px #00c6ff;
+  }
+  50% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  100% {
+    opacity: 1.0;
+    text-shadow: 0 0 20px #00c6ff;
+  }
+}
+@keyframes mymove {
   0% {
     opacity: 1.0;
     text-shadow: 0 0 20px #00c6ff;
