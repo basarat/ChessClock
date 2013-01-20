@@ -57,10 +57,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="www\css\bootstrap\bootstrap-responsive.css" />
+    <Content Include="www\css\bootstrap\bootstrap.css" />
+    <Content Include="www\css\bootstrap\bootstrap.min.css" />
     <Content Include="www\main.js.map">
       <DependentUpon>main.ts</DependentUpon>
     </Content>
     <None Include="www\Scripts\jquery\jquery-1.9.0.intellisense.js" />
+    <Content Include="www\Scripts\bootstrap\bootstrap.js" />
+    <Content Include="www\Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="www\Scripts\jquery\jquery-1.9.0.js" />
     <Content Include="www\Scripts\jquery\jquery-1.9.0.min.js" />
     <Content Include="www\css\fonts\BebasNeue-webfont.svg" />

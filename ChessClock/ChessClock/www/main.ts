@@ -16,6 +16,9 @@ ko.extenders.numeric = function (target: KnockoutObservableNumber, digits) {
             if (toret.length < digits) {
                 toret = "0" + toret;
             }
+            else if (toret.length > digits) {
+                toret = toret.substring(0, digits);
+            }
             return toret;
         },
         write: target
@@ -105,7 +108,7 @@ class ViewModel {
         this.gameState(GameStates.p1turn);
         //for timers
         this.p1.setTime(1, 15, 0);
-        this.p2.setTime(0, 0, 20);
+        this.p2.setTime(0, 10, 20);
 
        
         //Loop for every 100ms: 

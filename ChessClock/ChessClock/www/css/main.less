@@ -1,7 +1,4 @@
-﻿@width: 960px;
-@fontsize: 150pt;
-
-/* If you want you can use font-face */
+﻿/* If you want you can use font-face */
 @font-face {
     font-family: 'BebasNeueRegular';
     src: url('./fonts/BebasNeue-webfont.eot');
@@ -11,38 +8,28 @@
 }
 
 .container {
-    width: @width;
     margin: 0 auto;
     overflow: hidden;
 }
 
 .clock {
-    width: (@width - 160px);
     margin: 0 auto;
-    padding: 30px;
     border: 1px solid #333;
     color: #fff;
-    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
-    font-size: 36px;
-    text-align: center;
-    text-shadow: 0 0 5px #00c6ff;
+	//to center the text:
+	display:table;
+
 }
 
-    .clock ul {
-        width: 800px;
-        margin: 0 auto;
-        padding: 0px;
-        list-style: none;
-        text-align: center;
+    .clock div {
+        font-size: 150px;
+        font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+        text-shadow: 0 0 5px #00c6ff;
+        //setup to center the clock text 
+        display: table-cell;
+        vertical-align: middle;
+        line-height: normal; //reset from what bootstrap would have you believe
     }
-
-        .clock ul li {
-            display: inline;
-            font-size: @fontsize;
-            text-align: center;
-            font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
-            text-shadow: 0 0 5px #00c6ff;
-        }
 
 .point {
     position: relative;
@@ -87,16 +74,17 @@
     }
 }
 
-//make the p1 clock inverted
-#p1clock {
-
+//make the text inverted
+.invert {
 }
 
-//the green button 
-.green{
-	background: green;
+//Make it a full page application:
+html, body {
+    height: 100%;
 }
-//the red button 
-.red{
-	background: red;
+
+//Make buttons larger
+.btn {
+    height: 90%;
+    width: 90%;
 }

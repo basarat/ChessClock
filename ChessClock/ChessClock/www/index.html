@@ -2,49 +2,62 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Game Clock</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen" />
+    <!-- Main -->
     <link href="css/main.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <button data-bind="{
-            click: p2turn,
-            css: {
-                    green:gameState()==GameStates.p1turn,
-                    red:gameState()!=GameStates.p1turn,
-                } ,
-            enable:gameState()==GameStates.p1turn
-            }">
-            Turn Over</button>
-        <div id="p1clock" class="clock">
-            <ul>
-                <li data-bind="{text: p1.min}"></li>
-                <li class="point">:</li>
-                <li data-bind="{text: p1.sec}"></li>
-                <li class="point">:</li>
-                <li data-bind="{text: p1.mil}"></li>
-            </ul>
+    <div class="container-fluid pagination-centered" style="height: 100%">
+
+        <div class="row-fluid" style="height: 20%">
+            <button class="btn"
+                data-bind="{
+                    click: p2turn,
+                    css: {
+                            'btn-success':gameState()==GameStates.p1turn,
+                            'btn-inverse':gameState()==GameStates.p2turn,
+                            'disabled':gameState()!=GameStates.p1turn
+                        },
+                    disable:gameState()!=GameStates.p1turn                     
+                    }">Turn Over</button>
         </div>
-        <div id="p2clock" class="clock">
-            <ul>
-                <li data-bind="{text: p2.min}"></li>
-                <li class="point">:</li>
-                <li data-bind="{text: p2.sec}"></li>
-                <li class="point">:</li>
-                <li data-bind="{text: p2.mil}"></li>
-            </ul>
+        <div class="row-fluid clock" style="height: 30%">
+
+            <div data-bind="{text: p1.min}"></div>
+            <div class="point">:</div>
+            <div data-bind="{text: p1.sec}"></div>
+            <div class="point">:</div>
+            <div data-bind="{text: p1.mil}"></div>
+
         </div>
-        <button data-bind="{
-            click: p1turn,
-            css: {
-                    green:gameState()==GameStates.p2turn,
-                    red:gameState()!=GameStates.p2turn,
-                },
-            enable: gameState()==GameStates.p2turn 
-            }">
-            Turn Over</button>
+        <div class="row-fluid clock" style="height: 30%">
+
+            <div data-bind="{text: p2.min}"></div>
+            <div class="point">:</div>
+            <div data-bind="{text: p2.sec}"></div>
+            <div class="point">:</div>
+            <div data-bind="{text: p2.mil}"></div>
+
+        </div>
+        <div class="row-fluid" style="height: 20%">
+            <button class="btn"
+                data-bind="{
+                    click: p1turn,
+                    css: {
+                          'btn-success':gameState()==GameStates.p2turn,
+                          'btn-inverse':gameState()==GameStates.p1turn,
+                          'disabled':gameState()!=GameStates.p2turn
+                        },
+                    disable:gameState()!=GameStates.p2turn     
+                    }">Turn Over</button>
+        </div>
     </div>
+
 </body>
 <script src="Scripts/jquery/jquery-1.9.0.js"></script>
+<script src="Scripts/bootstrap/bootstrap.js"></script>
 <script src="Scripts/knockout/knockout-2.2.1.debug.js"></script>
 <script src="main.js"></script>
 </html>

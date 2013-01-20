@@ -5,6 +5,10 @@ ko.extenders.numeric = function (target, digits) {
             var toret = value.toString();
             if(toret.length < digits) {
                 toret = "0" + toret;
+            } else {
+                if(toret.length > digits) {
+                    toret = toret.substring(0, digits);
+                }
             }
             return toret;
         },
@@ -79,7 +83,7 @@ var ViewModel = (function () {
         this.gameState = ko.observable(GameStates.paused);
         this.gameState(GameStates.p1turn);
         this.p1.setTime(1, 15, 0);
-        this.p2.setTime(0, 0, 20);
+        this.p2.setTime(0, 10, 20);
         var self = this;
         setInterval(function () {
             self.update();
