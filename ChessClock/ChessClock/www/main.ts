@@ -144,11 +144,6 @@ class ViewModel {
 
 }
 
-//Application initialization:
-$(function () {
-    var vm: ViewModel = new ViewModel();
-    ko.applyBindings(vm);
-});
 
 
 
