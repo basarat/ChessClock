@@ -24,7 +24,8 @@
             settings = $.extend({
                 'minFontSize': Number.NEGATIVE_INFINITY,
                 'maxFontSize': Number.POSITIVE_INFINITY,
-                'basedon': '' //resize this based on another items height / width
+                'basedon': '', //resize this based on another items height / width
+                'dir': 'b' //Can be h or w or b 
             }, options);
 
         return this.each(function () {
@@ -52,11 +53,11 @@
 
                 console.log(height, width, sizeh, sizew);
 
-                //If now width or height is set. Ignore that dimension:
-                if (height == 0) {
+                //If no width or height is set. Ignore that dimension:
+                if ((height == 0) || (settings.dir == 'w')) {
                     sizeh = Number.POSITIVE_INFINITY;
                 }
-                if ((width == 0)) {
+                if ((width == 0) || (settings.dir == 'h')) {
                     sizew = Number.POSITIVE_INFINITY;
 
                 }
