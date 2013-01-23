@@ -6,12 +6,17 @@ body {
   padding: 0px;
   margin: 0px;
 }
-.btn {
-  height: 90%;
-  width: 90%;
+#mainDiv {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  height: 95%;
+  width: 100%;
 }
-.row-fluid {
-  padding: 0px 0px;
+.btn {
+  height: 100%;
+  width: 90%;
 }
 @font-face {
   font-family: 'BebasNeueRegular';

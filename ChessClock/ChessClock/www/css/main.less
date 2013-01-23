@@ -1,23 +1,32 @@
 ﻿//Make it a full page application:
 html, body {
     height: 100%;
-	width:100%;
-	overflow: hidden;
-	padding:0px;
-	margin:0px;
+    width: 100%;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+
+//Center the content in mainDiv at 95% height
+#mainDiv {
+    //Start ensure vertical centering
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    //End
+	//Setup for full screen 
+    height: 95%;
+    width: 100%;
 }
 
 //Make buttons from bootstrap larger
 .btn {
-	//make it with margin top and bottom: 
-    height: 90%;	
-	//Set up width
+    height: 100%;
+    //Set up width
     width: 90%;
 }
-//put some padding between bootstrap rows: 
-.row-fluid{
-	padding:0px 0px;
-}
+
 
 
 
@@ -34,8 +43,8 @@ html, body {
 }
 
 .clock {
-    margin: 0 auto;    
-    color: #fff;    
+    margin: 0 auto;
+    color: #fff;
     font-size: 150px;
     font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
     text-shadow: 0 0 5px #00c6ff;
@@ -44,11 +53,10 @@ html, body {
     .clock span {
         //take up all available space:
         height: 100%;
-		//For text resizing required: https://github.com/davatron5000/FitText.js
-		display: inline-block;		
+        //For text resizing required: https://github.com/davatron5000/FitText.js
+        display: inline-block;
         //center the text by overriding the lineheight set by bootstrap:
-		line-height:normal;
-        
+        line-height: normal;
     }
 
 .point {
@@ -79,6 +87,7 @@ html, body {
         text-shadow: 0 0 20px #00c6ff;
     }
 }
+
 @-moz-keyframes mymove {
     0% {
         opacity: 1.0;
@@ -119,5 +128,3 @@ html, body {
 //make the text inverted
 .invert {
 }
-
-

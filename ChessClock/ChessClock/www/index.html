@@ -9,9 +9,13 @@
     <link href="css/main.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container-fluid pagination-centered" style="height: 100%">
+    <!--Simplest way to center vertically remains using a table -->
 
-        <div class="row-fluid" style="height: 20%; padding-top: 5px">
+
+    <!--Main Div-->
+    <div id="mainDiv" class="container-fluid pagination-centered">
+
+        <div class="row-fluid" style="height: 20%">
             <button class="btn"
                 data-bind="{
                     click: p2turn,
@@ -67,7 +71,7 @@
 <script src="main.js"></script>
 <script>
     $(function () {
-        var vm= new ViewModel();
+        var vm = new ViewModel();
         ko.applyBindings(vm);
 
 
@@ -83,6 +87,6 @@
 
         vm.gameState.subscribe(AdjustType);
     });
-    
+
 </script>
 </html>
