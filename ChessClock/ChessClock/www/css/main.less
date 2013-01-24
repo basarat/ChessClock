@@ -1,10 +1,18 @@
-﻿//Make it a full page application:
+﻿//Variables:
+@textShine : #8fe7ff;
+
+//Make it a full page application:
 html, body {
     height: 100%;
     width: 100%;
     overflow: hidden;
     padding: 0px;
     margin: 0px;
+}
+
+//The main application background: 
+body{
+	background-image: url(../img/background.png);
 }
 
 //Center the content in mainDiv at 95% height
@@ -47,7 +55,7 @@ html, body {
     color: #fff;
     font-size: 150px;
     font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
-    text-shadow: 0 0 5px #00c6ff;
+    text-shadow: 0 0 5px @textShine;
 }
 
     .clock span {
@@ -74,7 +82,7 @@ html, body {
 @-webkit-keyframes mymove {
     0% {
         opacity: 1.0;
-        text-shadow: 0 0 20px #00c6ff;
+        text-shadow: 0 0 20px @textShine;
     }
 
     50% {
@@ -84,14 +92,14 @@ html, body {
 
     100% {
         opacity: 1.0;
-        text-shadow: 0 0 20px #00c6ff;
+        text-shadow: 0 0 20px @textShine;
     }
 }
 
 @-moz-keyframes mymove {
     0% {
         opacity: 1.0;
-        text-shadow: 0 0 20px #00c6ff;
+        text-shadow: 0 0 20px @textShine;
     }
 
     50% {
@@ -101,14 +109,14 @@ html, body {
 
     100% {
         opacity: 1.0;
-        text-shadow: 0 0 20px #00c6ff;
+        text-shadow: 0 0 20px @textShine;
     }
 }
 
 @keyframes mymove {
     0% {
         opacity: 1.0;
-        text-shadow: 0 0 20px #00c6ff;
+        text-shadow: 0 0 20px @textShine;
     }
 
     50% {
@@ -118,7 +126,7 @@ html, body {
 
     100% {
         opacity: 1.0;
-        text-shadow: 0 0 20px #00c6ff;
+        text-shadow: 0 0 20px @textShine;
     }
 }
 
