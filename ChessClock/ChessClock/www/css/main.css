@@ -7,7 +7,11 @@ body {
   margin: 0px;
 }
 body {
-  background-image: url(../img/background.png);
+  background: url(../img/background.png);
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
 #mainDiv {
   position: absolute;
@@ -36,6 +40,7 @@ body {
   color: #fff;
   font-size: 150px;
   font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+  -webkit-text-shadow: 0 0 5px #8fe7ff;
   text-shadow: 0 0 5px #8fe7ff;
 }
 .clock span {
@@ -55,42 +60,51 @@ body {
 @-webkit-keyframes mymove {
   0% {
     opacity: 1.0;
+    -webkit-text-shadow: 0 0 20px #8fe7ff;
     text-shadow: 0 0 20px #8fe7ff;
   }
   50% {
     opacity: 0;
+    -webkit-text-shadow: none;
     text-shadow: none;
   }
   100% {
     opacity: 1.0;
+    -webkit-text-shadow: 0 0 20px #8fe7ff;
     text-shadow: 0 0 20px #8fe7ff;
   }
 }
 @-moz-keyframes mymove {
   0% {
     opacity: 1.0;
+    -webkit-text-shadow: 0 0 20px #8fe7ff;
     text-shadow: 0 0 20px #8fe7ff;
   }
   50% {
     opacity: 0;
+    -webkit-text-shadow: none;
     text-shadow: none;
   }
   100% {
     opacity: 1.0;
+    -webkit-text-shadow: 0 0 20px #8fe7ff;
     text-shadow: 0 0 20px #8fe7ff;
   }
 }
 @keyframes mymove {
   0% {
     opacity: 1.0;
+    -webkit-text-shadow: 0 0 20px #8fe7ff;
     text-shadow: 0 0 20px #8fe7ff;
   }
   50% {
     opacity: 0;
+    -webkit-text-shadow: none;
     text-shadow: none;
   }
   100% {
     opacity: 1.0;
+    -webkit-text-shadow: 0 0 20px #8fe7ff;
     text-shadow: 0 0 20px #8fe7ff;
   }
 }

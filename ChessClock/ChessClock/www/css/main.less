@@ -1,5 +1,5 @@
 ﻿//Variables:
-@textShine : #8fe7ff;
+@textShine: #8fe7ff;
 
 //Make it a full page application:
 html, body {
@@ -10,9 +10,14 @@ html, body {
     margin: 0px;
 }
 
-//The main application background: 
-body{
-	background-image: url(../img/background.png);
+//The main application background:
+body {
+    background: url(../img/background.png);
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 //Center the content in mainDiv at 95% height
@@ -23,7 +28,7 @@ body{
     bottom: 0px;
     margin: auto;
     //End
-	//Setup for full screen 
+    //Setup for full screen
     height: 95%;
     width: 100%;
 }
@@ -55,6 +60,7 @@ body{
     color: #fff;
     font-size: 150px;
     font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    -webkit-text-shadow: 0 0 5px @textShine;
     text-shadow: 0 0 5px @textShine;
 }
 
@@ -82,16 +88,19 @@ body{
 @-webkit-keyframes mymove {
     0% {
         opacity: 1.0;
+        -webkit-text-shadow: 0 0 20px @textShine;
         text-shadow: 0 0 20px @textShine;
     }
 
     50% {
         opacity: 0;
+        -webkit-text-shadow: none;
         text-shadow: none;
     }
 
     100% {
         opacity: 1.0;
+        -webkit-text-shadow: 0 0 20px @textShine;
         text-shadow: 0 0 20px @textShine;
     }
 }
@@ -99,16 +108,19 @@ body{
 @-moz-keyframes mymove {
     0% {
         opacity: 1.0;
+        -webkit-text-shadow: 0 0 20px @textShine;
         text-shadow: 0 0 20px @textShine;
     }
 
     50% {
         opacity: 0;
+        -webkit-text-shadow: none;
         text-shadow: none;
     }
 
     100% {
         opacity: 1.0;
+        -webkit-text-shadow: 0 0 20px @textShine;
         text-shadow: 0 0 20px @textShine;
     }
 }
@@ -116,16 +128,19 @@ body{
 @keyframes mymove {
     0% {
         opacity: 1.0;
+        -webkit-text-shadow: 0 0 20px @textShine;
         text-shadow: 0 0 20px @textShine;
     }
 
     50% {
         opacity: 0;
+        -webkit-text-shadow: none;
         text-shadow: none;
     }
 
     100% {
         opacity: 1.0;
+        -webkit-text-shadow: 0 0 20px @textShine;
         text-shadow: 0 0 20px @textShine;
     }
 }
