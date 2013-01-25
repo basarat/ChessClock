@@ -1,6 +1,13 @@
 ﻿//Variables:
 @textShine: #8fe7ff;
 
+//Fixing bootstrap:
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
 //Make it a full page application:
 html, body {
     height: 100%;
@@ -34,12 +41,20 @@ body {
 }
 
 //Make buttons from bootstrap larger
-.btn {
+.turnBtn {
     height: 100%;
     //Set up width
     width: 90%;
+    //Bring it topmost
+    z-index: 300;
 }
 
+.game-button {
+    height: 80%;
+    //center:
+    top: 10%;
+    position: relative;
+}
 
 
 
@@ -71,6 +86,13 @@ body {
         display: inline-block;
         //center the text by overriding the lineheight set by bootstrap:
         line-height: normal;
+        //Disable user selection:
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
 .point {

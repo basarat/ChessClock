@@ -100,9 +100,17 @@ class ViewModel {
     p2: Player = new Player();
     //Current game state
     gameState = ko.observable(GameStates.paused);
-
+    //For resuming 
+    lastPlayer = GameStates.p1turn;
 
     constructor() {
+        //Loop for every 100ms: 
+        var self = this;
+        setInterval(function () { self.update() }, this.gameTime);
+
+        //initial setup:
+        this.reset();
+
         //DEBUG for testing: 
         //for game state
         this.gameState(GameStates.p1turn);
@@ -110,10 +118,6 @@ class ViewModel {
         this.p1.setTime(1, 15, 0);
         this.p2.setTime(0, 10, 20);
 
-       
-        //Loop for every 100ms: 
-        var self = this;
-        setInterval(function () { self.update() }, this.gameTime); 
     }
 
     //Main loop to take actions based on current game state
@@ -134,13 +138,33 @@ class ViewModel {
         }
     }
 
+    reset() {
+        this.lastPlayer = GameStates.p1turn;
+        this.gameState(GameStates.paused);
+        this.p1.setTime(1, 15, 0);
+        this.p2.setTime(1, 15, 20);
+    }
+
     p1turn() {
         this.gameState(GameStates.p1turn);
     }
 
     p2turn() {
-        this.gameState(GameStates.p2turn);      
+        this.gameState(GameStates.p2turn);
     }
+
+    play_pause() {
+        if (this.gameState() != GameStates.paused) {
+            //We need to remember the current player whose turn we are pausing on 
+            this.lastPlayer = this.gameState();
+            this.gameState(GameStates.paused);
+        }
+        else{
+            this.gameState(this.lastPlayer);
+        }
+    }
+    
+
 
 }
 
