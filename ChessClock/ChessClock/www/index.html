@@ -31,7 +31,7 @@
                         },
                     disable:gameState()!=GameStates.p1turn                     
                     }">
-                <h1 data-bind="{visible: gameState()==GameStates.p1turn}" style="height: 100%">End Turn</h1>
+                <div data-bind="{visible: gameState()==GameStates.p1turn}" style="height: 100%">End Turn</div>
             </button>
         </div>
         <div id="p1time" class="row-fluid clock" style="height: 30%">
@@ -76,7 +76,7 @@
                         },
                     disable:gameState()!=GameStates.p2turn     
                     }">
-                <h1 data-bind="{visible: gameState()==GameStates.p2turn}" style="height: 100%">End Turn</h1>
+                <div data-bind="{visible: gameState()==GameStates.p2turn}" style="height: 100%">End Turn</div>
             </button>
         </div>
     </div>
@@ -94,7 +94,7 @@
 
 
         function AdjustType() {
-            jQuery("h1").fitText(0.5);
+            jQuery(".turnBtn div").fitText(0.5);
             jQuery(".clock span").fitText(.5, { 'basedon': '#p1time' });
             jQuery(".game-button").fitText(.2);
         }
