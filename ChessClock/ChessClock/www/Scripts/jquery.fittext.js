@@ -51,7 +51,7 @@
                 //use height as well 
                 var sizeh = Math.max(Math.min(height, parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize));
 
-                console.log(height, width, sizeh, sizew);
+                //console.log(height, width, sizeh, sizew);//For Debugging
 
                 //If no width or height is set. Ignore that dimension:
                 if ((height == 0) || (settings.dir == 'w')) {
