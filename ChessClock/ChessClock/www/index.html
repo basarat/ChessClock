@@ -43,14 +43,18 @@
             <span data-bind="{text: p1.mil}"></span>
 
         </div>
-        <div class="row-fluid center" style="height: 15%;width: 90%;background: rgba(255,255,255,.6);position: relative">
-            <button class="span2 offset2  btn game-button" data-bind="{click: play_pause}">
-                <i class="icon-play" data-bind="{visible: gameState()!=GameStates.pause}"></i>
-                <i class="icon-pause" data-bind="{visible: gameState()==GameStates.pause}"></i>
-                <!--Play/Pause-->
-            </button>
-            <button class="span2 offset1 btn game-button" data-bind="{click: reset}"><i class="icon-repeat"></i> <!--Reset--></button>
-            <button class="span2 offset1 btn game-button"><i class="icon-cog"></i></button>
+        <div class="row-fluid center" style="height: 15%; width: 50%; min-width: 320px; background: rgba(100,100,100,.6); position: relative; border-radius: 4px">
+            <div class="row-fluid center span10 offset1" style="height: 100%">
+                <button class="span4  btn game-button btn-inverse" data-bind="{click: play_pause}">
+                    <i class="icon-play" data-bind="{visible: gameState()!=GameStates.pause}"></i>
+                    <i class="icon-pause" data-bind="{visible: gameState()==GameStates.pause}"></i>
+                    <!--Play/Pause-->
+                </button>
+                <button class="span4 btn game-button btn-inverse" data-bind="{click: reset}"><i class="icon-repeat"></i>
+                    <!--Reset-->
+                </button>
+                <button class="span4 btn game-button btn-inverse"><i class="icon-cog"></i></button>
+            </div>
         </div>
         <div class="row-fluid clock" style="height: 30%">
 
