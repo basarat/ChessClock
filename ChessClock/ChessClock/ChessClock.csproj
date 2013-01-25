@@ -60,10 +60,18 @@
     <Content Include="www\css\bootstrap\bootstrap-responsive.css" />
     <Content Include="www\css\bootstrap\bootstrap.css" />
     <Content Include="www\css\bootstrap\bootstrap.min.css" />
+    <Content Include="www\css\fontawesome\css\font-awesome-ie7.min.css" />
+    <Content Include="www\css\fontawesome\css\font-awesome.css" />
+    <Content Include="www\css\fontawesome\css\font-awesome.min.css" />
+    <Content Include="www\css\fontawesome\font\fontawesome-webfont.svg" />
     <Content Include="www\img\background.png" />
     <Content Include="www\main.js.map">
       <DependentUpon>main.ts</DependentUpon>
     </Content>
+    <Content Include="www\css\fontawesome\font\fontawesome-webfont.eot" />
+    <Content Include="www\css\fontawesome\font\fontawesome-webfont.ttf" />
+    <Content Include="www\css\fontawesome\font\fontawesome-webfont.woff" />
+    <Content Include="www\css\fontawesome\font\FontAwesome.otf" />
     <None Include="www\Scripts\jquery\jquery-1.9.0.intellisense.js" />
     <Content Include="www\scratch.html" />
     <Content Include="www\Scripts\bootstrap\bootstrap.js" />
