@@ -46,8 +46,8 @@
         <div class="row-fluid center" style="height: 15%; width: 50%; min-width: 320px; background: rgba(100,100,100,.6); position: relative; border-radius: 4px">
             <div class="row-fluid center span10 offset1" style="height: 100%">
                 <button class="span4  btn game-button btn-inverse" data-bind="{click: play_pause}">
-                    <i class="icon-play" data-bind="{visible: gameState()!=GameStates.pause}"></i>
-                    <i class="icon-pause" data-bind="{visible: gameState()==GameStates.pause}"></i>
+                    <i class="icon-play" data-bind="{visible: IsPaused()}"></i>
+                    <i class="icon-pause" data-bind="{visible: !IsPaused()}"></i>
                     <!--Play/Pause-->
                 </button>
                 <button class="span4 btn game-button btn-inverse" data-bind="{click: reset}"><i class="icon-repeat"></i>

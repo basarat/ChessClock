@@ -28,6 +28,15 @@ ko.extenders.numeric = function (target: KnockoutObservableNumber, digits) {
     return result;
 };
 
+//http://stackoverflow.com/questions/10114472/is-it-possible-to-data-bind-visible-the-not-of-a-boolean-viewmodel-property
+(<any>(ko.bindingHandlers)).hidden = {
+  update: function(element, valueAccessor) {
+    (<any>(ko.bindingHandlers.visible)).update(element, function() {
+      !ko.utils.unwrapObservable(valueAccessor());
+    });
+  }
+};
+
 
 //Game states: 
 class GameStates {
@@ -102,11 +111,16 @@ class ViewModel {
     gameState = ko.observable(GameStates.paused);
     //For resuming 
     lastPlayer = GameStates.p1turn;
+    //A computed observable for play pause visibility
+    IsPaused: KnockoutComputed;
 
     constructor() {
         //Loop for every 100ms: 
         var self = this;
         setInterval(function () { self.update() }, this.gameTime);
+
+        //computed observables:
+        this.IsPaused = ko.computed(() => { this.gameState() == GameStates.paused});
 
         //initial setup:
         this.reset();
