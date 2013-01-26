@@ -33,6 +33,7 @@ ko.extenders.numeric = function (target: KnockoutObservableNumber, digits) {
   update: function(element, valueAccessor) {
     (<any>(ko.bindingHandlers.visible)).update(element, function() {
       !ko.utils.unwrapObservable(valueAccessor());
+      console.log("hidden was asked to be updated");
     });
   }
 };
@@ -120,7 +121,8 @@ class ViewModel {
         setInterval(function () { self.update() }, this.gameTime);
 
         //computed observables:
-        this.IsPaused = ko.computed(() => { this.gameState() == GameStates.paused});
+        this.IsPaused = ko.computed(() => { return (this.gameState() == GameStates.paused); });
+        this.IsPaused.subscribe((val) => { console.log(val); });
 
         //initial setup:
         this.reset();
@@ -150,6 +152,7 @@ class ViewModel {
                     this.gameState(GameStates.p1win);
                 break;
         }
+        
     }
 
     reset() {

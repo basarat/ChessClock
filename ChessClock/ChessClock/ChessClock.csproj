@@ -72,6 +72,9 @@
     <Content Include="www\css\fontawesome\font\fontawesome-webfont.ttf" />
     <Content Include="www\css\fontawesome\font\fontawesome-webfont.woff" />
     <Content Include="www\css\fontawesome\font\FontAwesome.otf" />
+    <Content Include="www\main.min.js.map">
+      <DependentUpon>main.js</DependentUpon>
+    </Content>
     <None Include="www\Scripts\jquery\jquery-1.9.0.intellisense.js" />
     <Content Include="www\scratch.html" />
     <Content Include="www\Scripts\bootstrap\bootstrap.js" />
