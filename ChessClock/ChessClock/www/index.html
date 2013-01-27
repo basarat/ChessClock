@@ -19,17 +19,17 @@
 
         <div class="row-fluid" style="height: 13%">
             <button class="btn turnBtn"
-                ng-click="p2turn()"
-                data-bind="{
-                    click: p2turn,
+                data-ng-click="p2turn()"
+                data-bind="{                    
                     css: {
                             'btn-success':gameState()==GameStates.p1turn,
                             'btn-inverse':gameState()==GameStates.p2turn,
                             'disabled':gameState()!=GameStates.p1turn
                         },
                     disable:gameState()!=GameStates.p1turn                     
-                    }"                
-                <div data-bind="{visible: gameState()==GameStates.p1turn}" style="height: 100%">End Turn</div>
+                    }"
+                data-ng-class="{'btn-success' : gameState==gameStates.p1turn}">
+                <div data-ng-hide="gameState==GameStates.p1turn" style="height: 100%">End Turn</div>
             </button>
         </div>
         <div id="p1time" class="row-fluid clock" style="height: 30%">
@@ -45,11 +45,13 @@
             <div class="row-fluid center span10 offset1" style="height: 100%">
                 <button class="span4  btn game-button btn-inverse" data-bind="{click: play_pause}" ng-click="play_pause()">
                     <i class="icon-play" data-bind="{visible: IsPaused(),
-                        hidden: !IsPaused()}" style="display:block"></i>
+                        hidden: !IsPaused()}"
+                        style="display: block"></i>
                     <!--<i class="icon-pause" data-bind="{visible: !IsPaused()}"></i>-->
                     <!--Play/Pause-->
                 </button>
-                <button class="span4 btn game-button btn-inverse" data-bind="{click: reset}" ng-click="reset()"><i class="icon-repeat"></i>
+                <button class="span4 btn game-button btn-inverse" data-bind="{click: reset}" ng-click="reset()">
+                    <i class="icon-repeat"></i>
                     <!--Reset-->
                 </button>
                 <button class="span4 btn game-button btn-inverse"><i class="icon-cog"></i></button>
@@ -66,7 +68,7 @@
         </div>
         <div class="row-fluid" style="height: 13%">
             <button class="btn turnBtn"
-                ng-click="p1turn()"
+                data-ng-click="p1turn()"
                 data-bind="{
                     click: p1turn,
                     css: {
