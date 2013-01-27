@@ -71,11 +71,12 @@ class Player {
 interface IMainScope extends ng.IScope {
     p1: Player;
     p2: Player;
-    gameState: number;
+    gameState: GameStates;
     //For resuming 
     lastPlayer: number;
-    //For comparisons
-    gameStates: GameStates;
+
+    //Variables for expressions
+    GameStates: GameStates;
 
     //functions: 
     reset();
@@ -98,9 +99,10 @@ class MainController {
         $scope.p1 = new Player();
         $scope.p2 = new Player();
         //Current game state
-        $scope.gameStates = GameStates;
         $scope.gameState = GameStates.paused;        
         
+        //Any vaiables you want exposed on expressions go here
+        $scope.GameStates = GameStates;
 
 
         //setup the functions 
