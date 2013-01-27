@@ -2,12 +2,12 @@
 /// <reference path="Scripts/jquery/jquery.d.ts" />
 
 //Game states: 
-class GameStates {
-    p1turn = 0;
-    p2turn = 1;
-    paused = 2;
-    p1win = 3;
-    p2win = 4;
+enum GameStates {
+    p1turn,
+    p2turn,
+    paused,
+    p1win,
+    p2win
 }
 
 //a class that self contains mins/sec/miliseconds 
@@ -98,25 +98,25 @@ class MainController {
         $scope.p1 = new Player();
         $scope.p2 = new Player();
         //Current game state
-        $scope.gameStates = new GameStates();
-        $scope.gameState = $scope.gameStates.paused;        
+        $scope.gameStates = GameStates;
+        $scope.gameState = GameStates.paused;        
         
 
 
         //setup the functions 
-        $scope.p1turn = () => { $scope.gameState = ($scope.gameStates.p1turn); };
-        $scope.p2turn = () => { $scope.gameState = ($scope.gameStates.p2turn); };
+        $scope.p1turn = () => { $scope.gameState = (GameStates.p1turn); };
+        $scope.p2turn = () => { $scope.gameState = (GameStates.p2turn); };
         $scope.reset = () => {
-            $scope.lastPlayer = $scope.gameStates.p1turn;
-            $scope.gameState = ($scope.gameStates.paused);
+            $scope.lastPlayer = GameStates.p1turn;
+            $scope.gameState = (GameStates.paused);
             $scope.p1.setTime(1, 15, 0);
             $scope.p2.setTime(1, 15, 20);
         }
         $scope.play_pause = () => {
-            if ($scope.gameState != $scope.gameStates.paused) {
+            if ($scope.gameState != GameStates.paused) {
                 //We need to remember the current player whose turn we are pausing on 
                 $scope.lastPlayer = $scope.gameState;
-                $scope.gameState = ($scope.gameStates.paused);
+                $scope.gameState = (GameStates.paused);
             }
             else {
                 $scope.gameState = ($scope.lastPlayer);
@@ -133,7 +133,7 @@ class MainController {
 
         //DEBUG for testing: 
         //for game state
-        $scope.gameState = ($scope.gameStates.p1turn);
+        $scope.gameState = (GameStates.p1turn);
         //for timers
         $scope.p1.setTime(1, 15, 0);
         $scope.p2.setTime(0, 10, 20);
@@ -143,17 +143,17 @@ class MainController {
     //Main loop to take actions based on current game state
     update($scope: IMainScope): any {
         switch ($scope.gameState) {
-            case $scope.gameStates.paused:
+            case GameStates.paused:
                 break;
-            case $scope.gameStates.p1turn:
+            case GameStates.p1turn:
                 $scope.p1.decreaseTime(this.gameTime);
                 if ($scope.p1.totalTime() == 0)
-                    $scope.gameState = ($scope.gameStates.p2win);
+                    $scope.gameState = (GameStates.p2win);
                 break;
-            case $scope.gameStates.p2turn:
+            case GameStates.p2turn:
                 $scope.p2.decreaseTime(this.gameTime);
                 if ($scope.p2.totalTime() == 0)
-                    $scope.gameState = ($scope.gameStates.p1win);
+                    $scope.gameState = (GameStates.p1win);
                 break;
         }
     }
