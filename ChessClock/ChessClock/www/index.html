@@ -20,16 +20,13 @@
         <div class="row-fluid" style="height: 13%">
             <button class="btn turnBtn"
                 data-ng-click="p2turn()"
-                data-bind="{                    
-                    css: {
-                            'btn-success':gameState()==GameStates.p1turn,
-                            'btn-inverse':gameState()==GameStates.p2turn,
-                            'disabled':gameState()!=GameStates.p1turn
-                        },
-                    disable:gameState()!=GameStates.p1turn                     
-                    }"
-                data-ng-class="{'btn-success' : gameState==GameStates.p1turn}">
-                <div data-ng-hide="gameState==GameStates.p1turn" style="height: 100%">End Turn</div>
+                data-ng-disable="gameState!=GameStates.p1turn"
+                data-ng-class="{
+                    'btn-success' : gameState==GameStates.p1turn,
+                    'btn-inverse':gameState==GameStates.p2turn,
+                    'disabled':gameState!=GameStates.p1turn
+                }">
+                <div data-ng-show="gameState==GameStates.p1turn" style="height: 100%">End Turn</div>
             </button>
         </div>
         <div id="p1time" class="row-fluid clock" style="height: 30%">
@@ -44,10 +41,8 @@
         <div class="row-fluid center" style="height: 15%; width: 50%; min-width: 320px; background: rgba(100,100,100,.6); position: relative; border-radius: 4px">
             <div class="row-fluid center span10 offset1" style="height: 100%">
                 <button class="span4  btn game-button btn-inverse" data-bind="{click: play_pause}" ng-click="play_pause()">
-                    <i class="icon-play" data-bind="{visible: IsPaused(),
-                        hidden: !IsPaused()}"
-                        style="display: block"></i>
-                    <!--<i class="icon-pause" data-bind="{visible: !IsPaused()}"></i>-->
+                    <i class="icon-play" data-ng-show="gameState==GameStates.paused"></i>
+                    <i class="icon-pause" data-ng-show="gameState!=GameStates.paused"></i>
                     <!--Play/Pause-->
                 </button>
                 <button class="span4 btn game-button btn-inverse" data-bind="{click: reset}" ng-click="reset()">
@@ -69,16 +64,13 @@
         <div class="row-fluid" style="height: 13%">
             <button class="btn turnBtn"
                 data-ng-click="p1turn()"
-                data-bind="{
-                    click: p1turn,
-                    css: {
-                          'btn-success':gameState()==GameStates.p2turn,
-                          'btn-inverse':gameState()==GameStates.p1turn,
-                          'disabled':gameState()!=GameStates.p2turn
-                        },
-                    disable:gameState()!=GameStates.p2turn     
-                    }">
-                <div data-bind="{visible: gameState()==GameStates.p2turn}" style="height: 100%">End Turn</div>
+                data-ng-disable="gameState!=GameStates.p2turn"
+                data-ng-class="{
+                    'btn-success':gameState==GameStates.p2turn,
+                    'btn-inverse':gameState==GameStates.p1turn,
+                    'disabled':gameState!=GameStates.p2turn
+                }">
+                <div data-ng-show="gameState==GameStates.p2turn" style="height: 100%">End Turn</div>
             </button>
         </div>
     </div>
@@ -96,11 +88,16 @@
             jQuery(".clock span").fitText(.5, { 'basedon': '#p1time' });
             jQuery(".game-button").fitText(.2);
         }
-
+        //adjust on resize and intially
         $(window).on('resize', function () {
             AdjustType();
         });
         AdjustType();
+        //Adjust type on gamestate changes: 
+        var scope = $("#mainDiv").scope();
+        scope.$watch('gameState', function () {
+            AdjustType();
+        });
     });
 
 </script>
