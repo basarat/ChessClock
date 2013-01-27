@@ -75,13 +75,16 @@
     <Content Include="www\main.min.js.map">
       <DependentUpon>main.js</DependentUpon>
     </Content>
-    <None Include="www\Scripts\jquery\jquery-1.9.0.intellisense.js" />
+    <None Include="www\scripts\jquery\jquery-1.9.0.intellisense.js" />
     <Content Include="www\scratch.html" />
-    <Content Include="www\Scripts\bootstrap\bootstrap.js" />
-    <Content Include="www\Scripts\bootstrap\bootstrap.min.js" />
-    <Content Include="www\Scripts\jquery.fittext.js" />
-    <Content Include="www\Scripts\jquery\jquery-1.9.0.js" />
-    <Content Include="www\Scripts\jquery\jquery-1.9.0.min.js" />
+    <Content Include="www\scripts\angular\angular.d.ts" />
+    <Content Include="www\scripts\angular\angular.js" />
+    <Content Include="www\scripts\angular\angular.min.js" />
+    <Content Include="www\scripts\bootstrap\bootstrap.js" />
+    <Content Include="www\scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="www\scripts\jquery.fittext.js" />
+    <Content Include="www\scripts\jquery\jquery-1.9.0.js" />
+    <Content Include="www\scripts\jquery\jquery-1.9.0.min.js" />
     <Content Include="www\css\fonts\BebasNeue-webfont.svg" />
     <Content Include="www\css\main.css">
       <DependentUpon>main.less</DependentUpon>
@@ -89,9 +92,8 @@
     <Content Include="www\css\main.min.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
-    <Content Include="www\Scripts\jquery\jquery.d.ts" />
-    <Content Include="www\Scripts\knockout\knockout.d.ts" />
-    <Content Include="www\Scripts\jquery\jquery-1.9.0.min.map" />
+    <Content Include="www\scripts\jquery\jquery.d.ts" />
+    <Content Include="www\scripts\jquery\jquery-1.9.0.min.map" />
     <TypeScriptCompile Include="www\main.ts" />
     <Content Include="www\main.js">
       <DependentUpon>main.ts</DependentUpon>
@@ -99,8 +101,6 @@
     <Content Include="www\main.min.js">
       <DependentUpon>main.ts</DependentUpon>
     </Content>
-    <Content Include="www\Scripts\knockout\knockout-2.2.1.debug.js" />
-    <Content Include="www\Scripts\knockout\knockout-2.2.1.js" />
     <Content Include="www\index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
