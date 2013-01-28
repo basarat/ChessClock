@@ -14,9 +14,6 @@
 
 
 (function ($) {
-
-
-
     $.fn.fitText = function (kompressor, options) {
 
         // Setup options
