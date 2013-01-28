@@ -110,6 +110,7 @@
     <Content Include="www\css\main.min.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
+    <Content Include="www\scripts\jquery\jquery-migrate-1.0.0.min.js" />
     <Content Include="www\scripts\jquery\jquery.d.ts" />
     <Content Include="www\scripts\jquery\jquery-1.9.0.min.map" />
     <TypeScriptCompile Include="www\main.ts" />
