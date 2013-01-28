@@ -6,6 +6,9 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen" />
     <!--<link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen" />-->
+    
+    <!-- Jquery UI -->
+    <link href="scripts/jqueryui/css/smoothness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
 
     <!-- Font Awesome  -->
     <link href="css/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -96,6 +99,7 @@
 </body>
 <!-- Main Libs -->
 <script src="Scripts/jquery/jquery-1.9.0.js"></script>
+<script src="scripts/jqueryui/js/jquery-ui-1.10.0.custom.js"></script>
 <script src="Scripts/bootstrap/bootstrap.js"></script>
 <script src="scripts/angular/angular.js"></script>
 
@@ -132,6 +136,10 @@
             //adjust type size
             AdjustType();
         });
+        
+
+        //Setup setting sliders: 
+        $("#minSlider").slider();
     });
 
 </script>
