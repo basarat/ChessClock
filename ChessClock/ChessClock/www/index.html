@@ -50,7 +50,7 @@
                     <i class="icon-repeat"></i>
                     <!--Reset-->
                 </button>
-                <button class="span4 btn game-button btn-inverse"><i class="icon-cog"></i></button>
+                <button class="span4 btn game-button btn-inverse" data-toggle="modal" data-target="#settingsModal"><i class="icon-cog"></i></button>
             </div>
         </div>
         <div class="row-fluid clock" style="height: 30%">
@@ -74,6 +74,22 @@
                 <div data-ng-show="gameState==GameStates.p2turn" style="height: 100%">End Turn</div>
                 <div data-ng-show="gameState==GameStates.paused" style="height: 100%">Paused</div>
             </button>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="settingsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&nbsp;x&nbsp;</button>
+            <h3 id="myModalLabel">Settings</h3>
+        </div>
+        <div class="modal-body">
+            <p>One fine body…</p>
+        </div>
+        <div class="modal-footer">
+            <div class="row-fluid">
+                <button class="btn btn-danger offset1 span5" data-dismiss="modal" aria-hidden="true">Cancel Changes</button>
+                <button class="btn btn-primary offset1 span5">Save Changes</button>
+            </div>
         </div>
     </div>
 
@@ -103,15 +119,26 @@
             jQuery(".clock span").fitText(.5, { 'basedon': '#p1time' });
             jQuery(".game-button").fitText(.2);
         }
-        //adjust on resize and intially
-        $(window).on('resize', function () {
-            AdjustType();
-        });
+        //adjust type size initially
         AdjustType();
         //Adjust type on gamestate changes: 
         var scope = $("#mainDiv").scope();
         scope.$watch('gameState', function () {
             AdjustType();
+        });
+
+
+        $(window).on('resize', function () {
+            //adjust type size
+            AdjustType();
+            //Fix width for settingsModal 
+
+        });
+
+
+        //Fix width for settingsModal
+        $("#settingsModal").on("resize", function () {
+            console.log("resized!");
         });
     });
 

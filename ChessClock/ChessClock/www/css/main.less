@@ -1,10 +1,25 @@
 ﻿//Variables:
 @textShine: #8fe7ff;
 
-//Fixing bootstrap:
+/*Fixing bootstrap:*/
+//We want no padding on container-fluid
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
+}
+//We want our modals to fit
+//centered and full width in the region provided
+.modal {
+    width: 90%;
+    margin-left: -45%;
+}
+
+@media screen and (min-width: 680px) {
+	//We want a min height on modal footer buttons
+    .modal-footer .btn {
+        font-size:32px;
+		min-height: 100px;
+    }
 }
 
 
@@ -43,8 +58,8 @@ body {
 
 //Make buttons from bootstrap larger
 .turnBtn {
-	font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight:bold;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
     height: 100%;
     //Set up width
     width: 90%;
@@ -57,8 +72,8 @@ body {
     //center:
     top: 10%;
     position: relative;
-	//I love this radius style:
-	border-radius:0px 10px 0px 10px;
+    //I love this radius style:
+    border-radius: 0px 10px 0px 10px;
 }
 
 
