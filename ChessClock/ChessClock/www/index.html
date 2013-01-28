@@ -13,7 +13,7 @@
     <!-- Main -->
     <link href="css/main.min.css" rel="stylesheet" />
 </head>
-<body ng-app>
+<body ng-app="mainApp">
     <!--Main Div-->
     <div id="mainDiv" class="container-fluid pagination-centered" ng-controller="MainController">
 
@@ -27,13 +27,14 @@
                     'disabled':gameState!=GameStates.p1turn
                 }">
                 <div data-ng-show="gameState==GameStates.p1turn" style="height: 100%">End Turn</div>
+                <div data-ng-show="gameState==GameStates.paused" style="height: 100%">Paused</div>
             </button>
         </div>
         <div id="p1time" class="row-fluid clock" style="height: 30%">
 
-            <span data-bind="{text: p1.min}">{{p1.min}}</span>
+            <span data-bind="{text: p1.min}">{{p1.min|digits:2}}</span>
             <span class="point">:</span>
-            <span data-bind="{text: p1.sec}">{{p1.sec}}</span>
+            <span data-bind="{text: p1.sec}">{{p1.sec|digits:2}}</span>
             <span class="point">:</span>
             <span data-bind="{text: p1.mil}">{{p1.mil}}</span>
 
@@ -54,9 +55,9 @@
         </div>
         <div class="row-fluid clock" style="height: 30%">
 
-            <span data-bind="{text: p2.min}">{{p2.min}}</span>
+            <span data-bind="{text: p2.min}">{{p2.min|digits:2}}</span>
             <span class="point">:</span>
-            <span data-bind="{text: p2.sec}">{{p2.sec}}</span>
+            <span data-bind="{text: p2.sec}">{{p2.sec|digits:2}}</span>
             <span class="point">:</span>
             <span data-bind="{text: p2.mil}">{{p2.mil}}</span>
 
@@ -71,18 +72,32 @@
                     'disabled':gameState!=GameStates.p2turn
                 }">
                 <div data-ng-show="gameState==GameStates.p2turn" style="height: 100%">End Turn</div>
+                <div data-ng-show="gameState==GameStates.paused" style="height: 100%">Paused</div>
             </button>
         </div>
     </div>
 
 </body>
+<!-- Main Libs -->
 <script src="Scripts/jquery/jquery-1.9.0.js"></script>
 <script src="Scripts/bootstrap/bootstrap.js"></script>
 <script src="scripts/angular/angular.js"></script>
+
+<!-- Jquery extensions  -->
 <script src="Scripts/jquery.fittext.js"></script>
+<!-- Angular extensions -->
+<script src="scripts/angular.filters.js"></script>
+
+<!-- Our main logic -->
 <script src="main.js"></script>
+
 <script>
+    //modules should created outside of jquery init. 
+    //The main appModule. Currently empty but depends on filters module
+    angular.module("mainApp", ["filters"]);
+
     $(function () {
+        //Register Jquery extensions
         function AdjustType() {
             jQuery(".turnBtn div").fitText(0.5);
             jQuery(".clock span").fitText(.5, { 'basedon': '#p1time' });

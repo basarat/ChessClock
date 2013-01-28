@@ -77,6 +77,7 @@
     </Content>
     <None Include="www\scripts\jquery\jquery-1.9.0.intellisense.js" />
     <Content Include="www\scratch.html" />
+    <Content Include="www\scripts\angular.filters.js" />
     <Content Include="www\scripts\angular\angular.d.ts" />
     <Content Include="www\scripts\angular\angular.js" />
     <Content Include="www\scripts\angular\angular.min.js" />
