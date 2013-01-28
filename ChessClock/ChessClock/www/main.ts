@@ -112,7 +112,7 @@ class MainController {
             $scope.lastPlayer = GameStates.p1turn;
             $scope.gameState = (GameStates.paused);
             $scope.p1.setTime(1, 15, 0);
-            $scope.p2.setTime(1, 15, 20);
+            $scope.p2.setTime(1, 15, 0);
         }
         $scope.play_pause = () => {
             if ($scope.gameState != GameStates.paused) {
@@ -138,7 +138,7 @@ class MainController {
         $scope.gameState = (GameStates.p1turn);
         //for timers
         $scope.p1.setTime(1, 15, 0);
-        $scope.p2.setTime(0, 10, 20);
+        $scope.p2.setTime(0, 10, 2);
 
     }
 
