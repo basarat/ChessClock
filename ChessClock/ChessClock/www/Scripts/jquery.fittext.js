@@ -59,7 +59,7 @@
 
                 }
                 //Take the min of both dimension calculations
-                size = Math.min(sizew, sizeh)
+                var size = Math.min(sizew, sizeh);
 
 
 
