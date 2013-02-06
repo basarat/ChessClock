@@ -66,6 +66,8 @@
                 $this.css('font-size', size);
                 //Setup line-height as well required because of bootstrap: 
                 //NOTE We set it to height as assumed by sizeh :) 
+                // This reaquires that we have overflow hidden on the parent element 
+                // otherwise text becomes selectable outside the parent div.
                 $this.css('line-height', sizeh + 'px');
                 //CUSTOMCODE
             };
