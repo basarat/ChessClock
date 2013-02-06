@@ -8,7 +8,7 @@
     <script src="scripts/jquery/jquery-migrate-1.0.0.min.js"></script>
     <script src="scripts/jqueryui/js/jquery-ui-1.10.0.custom.js"></script>
     <link href="scripts/jqueryui/css/smoothness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
-    
+
     <!-- Bootstrap -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen" />
     <script src="Scripts/bootstrap/bootstrap.js"></script>
@@ -21,6 +21,7 @@
     <script src="Scripts/jquery.fittext.js"></script>
     <!-- Angular extensions -->
     <script src="scripts/angular.filters.js"></script>
+    <script src="scripts/angular.jqui.js"></script>
 
     <!-- Font Awesome  -->
     <link href="css/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -49,36 +50,32 @@
             </button>
         </div>
         <div id="p1time" class="row-fluid clock" style="height: 30%">
-
-            <span data-bind="{text: p1.min}">{{p1.min|digits:2}}</span>
+            <span>{{p1.min|digits:2}}</span>
             <span class="point">:</span>
-            <span data-bind="{text: p1.sec}">{{p1.sec|digits:2}}</span>
+            <span>{{p1.sec|digits:2}}</span>
             <span class="point">:</span>
-            <span data-bind="{text: p1.mil}">{{p1.mil}}</span>
-
+            <span>{{p1.mil}}</span>
         </div>
         <div class="row-fluid center" style="height: 15%; width: 50%; min-width: 320px; background: rgba(100,100,100,.6); position: relative; border-radius: 4px">
             <div class="row-fluid center span10 offset1" style="height: 100%">
-                <button class="span4  btn game-button btn-inverse" data-bind="{click: play_pause}" ng-click="play_pause()">
+                <button class="span4  btn game-button btn-inverse" ng-click="play_pause()">
                     <i class="icon-play" data-ng-show="gameState==GameStates.paused"></i>
                     <i class="icon-pause" data-ng-show="gameState!=GameStates.paused"></i>
                     <!--Play/Pause-->
                 </button>
-                <button class="span4 btn game-button btn-inverse" data-bind="{click: reset}" ng-click="reset()">
+                <button class="span4 btn game-button btn-inverse" ng-click="reset()">
                     <i class="icon-repeat"></i>
                     <!--Reset-->
                 </button>
-                <button class="span4 btn game-button btn-inverse" data-toggle="modal" data-target="#settingsModal"><i class="icon-cog"></i></button>
+                <button class="span4 btn game-button btn-inverse" data-toggle="modal" data-target="#settingsModal" ng-click="pause()"><i class="icon-cog"></i></button>
             </div>
         </div>
         <div class="row-fluid clock" style="height: 30%">
-
-            <span data-bind="{text: p2.min}">{{p2.min|digits:2}}</span>
+            <span>{{p2.min|digits:2}}</span>
             <span class="point">:</span>
-            <span data-bind="{text: p2.sec}">{{p2.sec|digits:2}}</span>
+            <span>{{p2.sec|digits:2}}</span>
             <span class="point">:</span>
-            <span data-bind="{text: p2.mil}">{{p2.mil}}</span>
-
+            <span>{{p2.mil}}</span>
         </div>
         <div class="row-fluid" style="height: 13%">
             <button class="btn turnBtn"
@@ -98,15 +95,18 @@
     <div id="settingsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&nbsp;x&nbsp;</button>
-            <h3 id="myModalLabel">Settings</h3>
+            <h1 id="myModalLabel">Settings</h1>
         </div>
         <div class="modal-body">
-            <div id="minSlider"></div>
+            <div jqui-slider min="0" max="60" value="minsetting"></div>
+            <div class="text">Minutes Per Player: {{minsetting}}</div>
+            <div jqui-slider min="0" max="60" value="secsetting"></div>
+            <div class="text">Seconds Per Player: {{secsetting}}</div>
         </div>
         <div class="modal-footer">
             <div class="row-fluid">
                 <button class="btn btn-danger offset1 span5" data-dismiss="modal" aria-hidden="true">Cancel Changes</button>
-                <button class="btn btn-primary offset1 span5">Save Changes</button>
+                <button class="btn btn-primary offset1 span5" data-dismiss="modal" ng-click="reset()">Save Changes</button>
             </div>
         </div>
     </div>
@@ -116,7 +116,7 @@
 <script>
     //modules should created outside of jquery init. 
     //The main appModule. Currently empty but depends on filters module
-    angular.module("mainApp", ["filters"]);
+    angular.module("mainApp", ["filters", "jqui"]);
 
     $(function () {
         //Register Jquery extensions
@@ -133,15 +133,10 @@
             AdjustType();
         });
 
-
         $(window).on('resize', function () {
             //adjust type size
             AdjustType();
         });
-
-
-        //Setup setting sliders: 
-        $("#minSlider").slider();
     });
 
 </script>

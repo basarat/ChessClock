@@ -74,6 +74,9 @@ interface IMainScope extends ng.IScope {
     gameState: GameStates;
     //For resuming 
     lastPlayer: number;
+    //Settings
+    minsetting: number;
+    secsetting: number;
 
     //Variables for expressions
     GameStates: GameStates;
@@ -82,8 +85,8 @@ interface IMainScope extends ng.IScope {
     reset();
     p1turn();
     p2turn();
-    play_pause();
-
+    pause();
+    play_pause();    
 }
 
 
@@ -100,6 +103,9 @@ class MainController {
         $scope.p2 = new Player();
         //Current game state
         $scope.gameState = GameStates.paused;        
+        //Settings
+        $scope.minsetting = 10;
+        $scope.secsetting = 30;
         
         //Any vaiables you want exposed on expressions go here
         $scope.GameStates = GameStates;
@@ -111,14 +117,15 @@ class MainController {
         $scope.reset = () => {
             $scope.lastPlayer = GameStates.p1turn;
             $scope.gameState = (GameStates.paused);
-            $scope.p1.setTime(1, 15, 0);
-            $scope.p2.setTime(1, 15, 0);
+            $scope.p1.setTime($scope.minsetting, $scope.secsetting, 0);
+            $scope.p2.setTime($scope.minsetting, $scope.secsetting, 0);
         }
+        $scope.pause = () => { $scope.gameState = (GameStates.paused); };
         $scope.play_pause = () => {
             if ($scope.gameState != GameStates.paused) {
                 //We need to remember the current player whose turn we are pausing on 
                 $scope.lastPlayer = $scope.gameState;
-                $scope.gameState = (GameStates.paused);
+                $scope.pause();
             }
             else {
                 $scope.gameState = ($scope.lastPlayer);
