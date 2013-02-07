@@ -144,8 +144,8 @@ class MainController {
         //for game state
         $scope.gameState = (GameStates.p1turn);
         //for timers
-        $scope.p1.setTime(1, 15, 0);
-        $scope.p2.setTime(0, 10, 2);
+        $scope.p1.setTime(0, 1, 0);
+        $scope.p2.setTime(0, 1, 2);
 
     }
 

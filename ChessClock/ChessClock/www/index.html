@@ -21,7 +21,7 @@
     <script src="Scripts/jquery.fittext.js"></script>
     <!-- Angular extensions -->
     <script src="scripts/angular.filters.js"></script>
-    <script src="scripts/angular.jqui.js"></script>
+    <script src="scripts/angular.bui.js"></script>
 
     <!-- Font Awesome  -->
     <link href="css/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -49,7 +49,7 @@
                 <div data-ng-show="gameState==GameStates.paused" style="height: 100%">Paused</div>
             </button>
         </div>
-        <div id="p1time" class="row-fluid clock" style="height: 30%;overflow: hidden">
+        <div id="p1time" class="row-fluid clock" style="height: 30%; overflow: hidden">
             <span>{{p1.min|digits:2}}</span>
             <span class="point">:</span>
             <span>{{p1.sec|digits:2}}</span>
@@ -70,7 +70,7 @@
                 <button class="span4 btn game-button btn-inverse" data-toggle="modal" data-target="#settingsModal" ng-click="pause()"><i class="icon-cog"></i></button>
             </div>
         </div>
-        <div class="row-fluid clock" style="height: 30%;overflow: hidden">
+        <div class="row-fluid clock" style="height: 30%; overflow: hidden">
             <span>{{p2.min|digits:2}}</span>
             <span class="point">:</span>
             <span>{{p2.sec|digits:2}}</span>
@@ -98,9 +98,9 @@
             <h1 id="myModalLabel">Settings</h1>
         </div>
         <div class="modal-body">
-            <div jqui-slider min="0" max="60" value="minsetting"></div>
+            <div bui-slider min="0" max="60" value="minsetting"></div>
             <div class="text">Minutes Per Player: {{minsetting}}</div>
-            <div jqui-slider min="0" max="60" value="secsetting"></div>
+            <div bui-slider min="0" max="60" value="secsetting"></div>
             <div class="text">Seconds Per Player: {{secsetting}}</div>
         </div>
         <div class="modal-footer">
@@ -110,13 +110,20 @@
             </div>
         </div>
     </div>
+    <!-- Player Win -->
+    <div id="playerWin" bui-modal expression="gameState==GameStates.p1win||gameState==GameStates.p2win" class="fade" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
+         <div class="modal-body">
+            <div class="text" ng-show="gameState==GameStates.p1win">Player 1 Wins!</div>
+            <div class="text" ng-show="gameState==GameStates.p2win">Player 2 Wins!</div>
+        </div>
+    </div>
 
 </body>
 
 <script>
     //modules should created outside of jquery init. 
     //The main appModule. Currently empty but depends on filters module
-    angular.module("mainApp", ["filters", "jqui"]);
+    angular.module("mainApp", ["filters", "bui"]);
 
     $(function () {
         //Register Jquery extensions
