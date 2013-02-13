@@ -112,9 +112,14 @@
     </div>
     <!-- Player Win -->
     <div id="playerWin" bui-modal expression="gameState==GameStates.p1win||gameState==GameStates.p2win" class="fade" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
-         <div class="modal-body">
-            <div class="text" ng-show="gameState==GameStates.p1win">Player 1 Wins!</div>
-            <div class="text" ng-show="gameState==GameStates.p2win">Player 2 Wins!</div>
+        <div class="modal-body">
+            <div class="win-message" ng-show="gameState==GameStates.p1win">Player 1 Wins!</div>
+            <div class="win-message" ng-show="gameState==GameStates.p2win">Player 2 Wins!</div>
+        </div>
+         <div class="modal-footer">
+            <div class="row-fluid">
+                <button class="btn btn-primary offset3 span6" data-dismiss="modal" ng-click="reset()">Reset</button>
+            </div>
         </div>
     </div>
 
