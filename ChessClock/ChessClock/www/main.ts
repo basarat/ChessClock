@@ -90,7 +90,7 @@ interface IMainScope extends ng.IScope {
     pause();
     play_pause();
     // Setting functions 
-    resetSettings();
+    revertSettings();
     applySettings();
 }
 
@@ -143,7 +143,7 @@ class MainController {
             $scope.secSetting = $scope.newSecSetting;
             $scope.reset() 
         }
-        $scope.resetSettings = () => {
+        $scope.revertSettings = () => {
             $scope.newMinSetting = $scope.minSetting;
             $scope.newSecSetting = $scope.secSetting;
         }
