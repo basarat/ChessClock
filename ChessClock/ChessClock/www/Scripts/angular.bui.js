@@ -13,8 +13,8 @@
                         });
                     }
                 });
-                $scope.$watch(attrs.value, function (newval) {
-                    slider.value(newval);
+                scope.$watch(attrs.value, function (newval) {
+                    slider.slider('value',newval);
                 },true);
             }
         };
