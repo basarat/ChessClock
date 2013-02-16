@@ -98,15 +98,15 @@
             <h1 id="myModalLabel">Settings</h1>
         </div>
         <div class="modal-body">
-            <div bui-slider min="0" max="60" value="minsetting"></div>
-            <div class="text">Minutes Per Player: {{minsetting}}</div>
-            <div bui-slider min="0" max="60" value="secsetting"></div>
-            <div class="text">Seconds Per Player: {{secsetting}}</div>
+            <div bui-slider min="0" max="60" value="newMinSetting"></div>
+            <div class="text">Minutes Per Player: {{newMinSetting}}</div>
+            <div bui-slider min="0" max="60" value="newSecSetting"></div>
+            <div class="text">Seconds Per Player: {{newSecSetting}}</div>
         </div>
         <div class="modal-footer">
             <div class="row-fluid">
-                <button class="btn btn-danger offset1 span5" data-dismiss="modal" aria-hidden="true">Cancel Changes</button>
-                <button class="btn btn-primary offset1 span5" data-dismiss="modal" ng-click="reset()">Save Changes</button>
+                <button class="btn btn-danger offset1 span5" data-dismiss="modal" aria-hidden="true" ng-click="resetSettings()">Cancel Changes</button>
+                <button class="btn btn-primary offset1 span5" data-dismiss="modal" ng-click="applySettings()">Save Changes</button>
             </div>
         </div>
     </div>

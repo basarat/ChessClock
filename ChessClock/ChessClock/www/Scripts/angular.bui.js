@@ -15,7 +15,7 @@
                 });
                 $scope.$watch(attrs.value, function (newval) {
                     slider.value(newval);
-                });
+                },true);
             }
         };
     })

@@ -75,8 +75,10 @@ interface IMainScope extends ng.IScope {
     //For resuming 
     lastPlayer: number;
     //Settings
-    minsetting: number;
-    secsetting: number;
+    minSetting: number;
+    secSetting: number;
+    newMinSetting: number;
+    newSecSetting: number;
 
     //Variables for expressions
     GameStates: GameStates;
@@ -86,7 +88,10 @@ interface IMainScope extends ng.IScope {
     p1turn();
     p2turn();
     pause();
-    play_pause();    
+    play_pause();
+    // Setting functions 
+    resetSettings();
+    applySettings();
 }
 
 
@@ -102,11 +107,11 @@ class MainController {
         $scope.p1 = new Player();
         $scope.p2 = new Player();
         //Current game state
-        $scope.gameState = GameStates.paused;        
+        $scope.gameState = GameStates.paused;
         //Settings
-        $scope.minsetting = 10;
-        $scope.secsetting = 30;
-        
+        $scope.minSetting = 10;
+        $scope.secSetting = 30;
+
         //Any vaiables you want exposed on expressions go here
         $scope.GameStates = GameStates;
 
@@ -117,8 +122,10 @@ class MainController {
         $scope.reset = () => {
             $scope.lastPlayer = GameStates.p1turn;
             $scope.gameState = (GameStates.paused);
-            $scope.p1.setTime($scope.minsetting, $scope.secsetting, 0);
-            $scope.p2.setTime($scope.minsetting, $scope.secsetting, 0);
+            $scope.p1.setTime($scope.minSetting, $scope.secSetting, 0);
+            $scope.p2.setTime($scope.minSetting, $scope.secSetting, 0);
+            $scope.newMinSetting = $scope.minSetting;
+            $scope.newSecSetting = $scope.secSetting;
         }
         $scope.pause = () => { $scope.gameState = (GameStates.paused); };
         $scope.play_pause = () => {
@@ -131,7 +138,16 @@ class MainController {
                 $scope.gameState = ($scope.lastPlayer);
             }
         };
-        
+        $scope.applySettings = () => { 
+            $scope.minSetting = $scope.newMinSetting;
+            $scope.secSetting = $scope.newSecSetting;
+            $scope.reset() 
+        }
+        $scope.resetSettings = () => {
+            $scope.newMinSetting = $scope.minSetting;
+            $scope.newSecSetting = $scope.secSetting;
+        }
+
 
         //Loop for every 100ms: 
         var self = this;
