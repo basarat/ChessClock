@@ -65,9 +65,8 @@ class Player {
 }
 
 //This seems the best way to expose member variables 
-//Name 
-//    your class as <ClassController> and 
-//    have a corresponsding scope definition named <IClassScope>
+//  Name your class as <ClassController> and 
+//  have a corresponsding scope definition named <IClassScope>
 interface IMainScope extends ng.IScope {
     p1: Player;
     p2: Player;
@@ -94,13 +93,10 @@ interface IMainScope extends ng.IScope {
     applySettings();
 }
 
-
 //ViewModel class 
 class MainController {
     //The miliseconds used to control key game times 
     gameTime = 100;//milliseconds 
-
-
 
     constructor($scope: IMainScope) {
         //players
@@ -114,7 +110,6 @@ class MainController {
 
         //Any vaiables you want exposed on expressions go here
         $scope.GameStates = GameStates;
-
 
         //setup the functions 
         $scope.p1turn = () => { $scope.gameState = (GameStates.p1turn); };
